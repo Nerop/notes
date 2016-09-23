@@ -72,7 +72,7 @@ $(function() {
         removeOptions();
         var html = '<ul>';
         for (var i = 0; i < array.length; i++) {
-            html += '<div class="note">' + '<div class="row text-right"><button class="btn-xs btn-danger btn-delete remove" ' + "id=" + i + '>X</button></div>' + '<div class="note-header">' + '<p>' + array[i].task + '</p>' + '</div>' + '<div class="note-footer">' + array[i].date + '</div></div>';
+            html += '<div class="note">' + '<div class="row text-right"><button class="btn-xs btn-danger btn-delete remove" ' + "id=" + i + '>X</button></div>' + '<div class="note-header">' + '<p>' + array[i].task + '</p>' + '</div>' + '<div class="note-footer">' + '<p>' + array[i].date + '</p>' + '</div></div>';
             //localStorage.setItem('filteredNote', JSON.stringify(array[i].date));
             $('#filter').append('<option>' + array[i].date + '</option>');
         }
@@ -99,6 +99,17 @@ $(function() {
         }
         $('.adder').css("visibility", 'visible');
         $('.btn-add').hide();
+        var date = new Date();
+
+        var day = date.getDate();
+        var month = date.getMonth() + 1;
+        var year = date.getFullYear();
+
+        if (month < 10) month = "0" + month;
+        if (day < 10) day = "0" + day;
+
+        var today = year + "-" + month + "-" + day;
+        $("#date").attr("value", today);
     });
     $('#add').click(function() {
         $('.adder').css("visibility", 'hidden');
@@ -116,7 +127,8 @@ $(function() {
     $('.btn-apply').click(function() {
         showFilteredNotes(notes);
     });
-    $('.btn-decline').click(function () {
+    $('.btn-decline').click(function() {
         show(get_notes());
     });
+
 });

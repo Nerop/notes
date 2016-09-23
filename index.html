@@ -27,16 +27,20 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <button class="btn btn-add">Добавить заметку</button>
-                                    <div class="adder">
-                                        <textarea rows="4" cols="50" id="task"></textarea>
-                                        <input type="date" id="date">
-                                        <button class="btn" id="add">Добавить</button>
+                                    <div class="row adder">
+                                        <div class="col-md-6"><textarea rows="4" cols="35" id="task"></textarea></div>
+                                        <div class="col-md-6">
+                                            <input type="date" id="date">
+                                            <button class="btn" id="add">Добавить</button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <select id="filter"></select>
-                                    <button class="btn btn-apply">Применить</button>
-                                    <button class="btn btn-decline">Сбросить</button>
+                                    <div class="row filter">
+                                        <select id="filter"></select>
+                                        <button class="btn btn-apply">Применить</button>
+                                        <button class="btn btn-decline">Сбросить</button>
+                                    </div>
                                 </div>
 
                             </div>
